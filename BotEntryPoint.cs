@@ -13,7 +13,7 @@ namespace RgAbilitybotCs
         {
             rgObject.CharacterConfig = new Dictionary<string, object>()
             {
-                ["foo"] = &quot;bar&quot;,
+                ["foo"] = "bar",
                 ["baz"] = 42,
                 ["biz"] = true,
                 ["boz"] = null,
