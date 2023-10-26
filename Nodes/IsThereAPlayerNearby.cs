@@ -13,6 +13,9 @@ namespace RgAbilitybotCs
          * Generated from prompt:
          * 
          */
-        
+        public override NodeStatus Execute(RG rgObject)
+        {
+        	return NodeStatus.FAILURE;
+        }
     }
 }
