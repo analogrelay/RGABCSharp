@@ -1,3 +1,6 @@
+using RegressionGames.BehaviorTree;
+using RegressionGames.RGBotLocalRuntime;
+
 namespace RgAbilitybotCs
 {
     public class PerformAction : ActionNode
@@ -10,10 +13,10 @@ namespace RgAbilitybotCs
          * Generated from prompt:
          * 
          */
-public override NodeStatus Execute(RG rgObject)
-{
-	// Perform action
-	return NodeStatus.SUCCESS;
-}
+        public override NodeStatus Execute(RG rgObject)
+        {
+        	// Perform action
+        	return NodeStatus.SUCCESS;
+        }
     }
 }

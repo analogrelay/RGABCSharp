@@ -1,14 +1,13 @@
 using System.Collections.Generic;
+using RegressionGames.BehaviorTree;
 using RegressionGames.RGBotLocalRuntime;
-using RegressionGames.StateActionTypes;
-using UnityEngine;
 
 namespace RgAbilitybotCs
 {
     public class BotEntryPoint : RGBehaviorTreeBot
     {
         protected override bool GetIsSpawnable() => true;
-        protected override RGBotLifecycle GetBotLifecycle() => RGBotLifecycle.MANAGED;
+        protected override RGBotLifecycle GetBotLifecycle() => RGBotLifecycle.Managed;
 
         protected override void ConfigureBotInternal(RG rgObject)
         {
@@ -22,7 +21,7 @@ namespace RgAbilitybotCs
         protected override RootNode BuildBehaviorTree()
         {
             var doAThing = new SelectorNode("Do A thing?");
-            doAThing.AddChild(new Invert(new IsThereAPlayerNearby()));
+            doAThing.AddChild(new InvertNode(new IsThereAPlayerNearbyNode()));
             doAThing.AddChild(new AlwaysFail());
             doAThing.AddChild(new AlwaysSucceed());
 
@@ -33,7 +32,6 @@ namespace RgAbilitybotCs
 
             var rootNode = new RootNode("Root Node");
             rootNode.AddChild(topLevelSequenceNode);
-
 
             return rootNode;
         }
