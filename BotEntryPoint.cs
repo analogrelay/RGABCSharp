@@ -9,14 +9,15 @@ namespace RgAbilitybotCs
         protected override bool GetIsSpawnable() => true;
         protected override RGBotLifecycle GetBotLifecycle() => RGBotLifecycle.Managed;
 
-        
-        
-        
-        private const string CharacterConfig = "[(foo, &quot;bar&quot;), (baz, 42), (biz, true), (boz, null)]";
-
         protected override void ConfigureBotInternal(RG rgObject)
         {
-            rgObject.CharacterConfig = JsonConvert.DeserializeObject<Dictionary<string, object>>(CharacterConfig);
+            rgObject.CharacterConfig = new Dictionary<string, object>()
+            {
+                ["foo"] = &quot;bar&quot;,
+                ["baz"] = 42,
+                ["biz"] = true,
+                ["boz"] = null,
+            };
         }
 
         protected override RootNode BuildBehaviorTree()
