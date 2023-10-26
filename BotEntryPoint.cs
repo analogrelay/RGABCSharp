@@ -21,7 +21,6 @@ namespace RgAbilitybotCs
         {
             var topLevelSequenceNode = new SequenceNode("Top Level Sequence Node");
             topLevelSequenceNode.AddChild(new IsBotActive());
-
             topLevelSequenceNode.AddChild(new PerformAction());
 
             var rootNode = new RootNode("Root Node");
