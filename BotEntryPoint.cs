@@ -21,9 +21,15 @@ namespace RgAbilitybotCs
 
         protected override RootNode BuildBehaviorTree()
         {
+            var doAThing = new SelectorNode("Do A thing?");
+            doAThing.AddChild(new Invert(new IsThereAPlayerNearby()));
+            doAThing.AddChild(new AlwaysFail());
+            doAThing.AddChild(new AlwaysSucceed());
+
             var topLevelSequenceNode = new SequenceNode("Top Level Sequence Node");
             topLevelSequenceNode.AddChild(new IsBotActive());
             topLevelSequenceNode.AddChild(new PerformAction());
+            topLevelSequenceNode.AddChild(doAThing);
 
             var rootNode = new RootNode("Root Node");
             rootNode.AddChild(topLevelSequenceNode);
