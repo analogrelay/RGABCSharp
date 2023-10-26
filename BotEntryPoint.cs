@@ -14,6 +14,8 @@ namespace RgAbilitybotCs
         {
             rgObject.CharacterConfig = new Dictionary<string, object>()
             {
+                { "foo", bar },
+                { "baz", 42 },
             };
         }
 

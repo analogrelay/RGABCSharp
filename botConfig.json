@@ -1,1 +1,1 @@
-{"isSpawnable":true,"lifecycle":"MANAGED","characterConfig":null}
+{"isSpawnable":true,"lifecycle":"MANAGED","characterConfig":"{\n  \"foo\": \"bar\",\n  \"baz\": 42\n}"}
