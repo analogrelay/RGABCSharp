@@ -21,7 +21,7 @@ namespace RgAbilitybotCs
         protected override RootNode BuildBehaviorTree()
         {
             var doAThing = new SelectorNode("Do A thing?");
-            doAThing.AddChild(new InvertNode(new IsThereAPlayerNearbyNode()));
+            doAThing.AddChild(new Invert(new IsThereAPlayerNearby()));
             doAThing.AddChild(new AlwaysFail());
             doAThing.AddChild(new AlwaysSucceed());
 
