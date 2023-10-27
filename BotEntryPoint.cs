@@ -23,7 +23,7 @@ namespace RgAbilitybotCs
             topLevelSequenceNode.AddChild(new SelectSkill());
             topLevelSequenceNode.AddChild(new PerformSkill());
 
-            var rootNode = new RootNode("Root Node");
+            var rootNode = new RootNode();
             rootNode.AddChild(topLevelSequenceNode);
 
             return rootNode;
