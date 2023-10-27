@@ -20,7 +20,7 @@ namespace RgAbilitybotCs
         	var selectedSkill = GetData<int>("selectedSkill");
         	var target = GetData<RGStateEntity>("targetEntity");
         
-        	var targetPosition = target.position ?? Vector3.zero;
+        	var targetPosition = target.position;
         	var action = new RGActionRequest("PerformSkill", new()
         	{
         		["skillId"] = selectedSkill,
