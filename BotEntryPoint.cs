@@ -7,7 +7,7 @@ namespace RgAbilitybotCs
     public class BotEntryPoint : RGBehaviorTreeBot
     {
         protected override bool GetIsSpawnable() => true;
-        protected override RGBotLifecycle GetBotLifecycle() => RGBotLifecycle.Managed;
+        protected override RGBotLifecycle GetBotLifecycle() => RGBotLifecycle.MANAGED;
 
         private const string CharacterConfig = @"{""characterType"":""Archer""}";
 
