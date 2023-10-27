@@ -11,7 +11,7 @@ namespace RgAbilitybotCs
 
         private const string CharacterConfig = @"{""characterType"":""Archer""}";
 
-        protected override void ConfigureBotInternal(RG rgObject)
+        public override void ConfigureBot(RG rgObject)
         {
             rgObject.SetCharacterConfigFromJson(CharacterConfig);
         }
