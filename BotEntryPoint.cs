@@ -9,15 +9,11 @@ namespace RgAbilitybotCs
         protected override bool GetIsSpawnable() => true;
         protected override RGBotLifecycle GetBotLifecycle() => RGBotLifecycle.Managed;
 
+        private const string CharacterConfig = "{\\"foo\\":\\"bar\\",\\"baz\\":42,\\"biz\\":true,\\"boz\\":null}";
+
         protected override void ConfigureBotInternal(RG rgObject)
         {
-            rgObject.CharacterConfig = new Dictionary<string, object>()
-            {
-                ["foo"] = "bar",
-                ["baz"] = 42,
-                ["biz"] = true,
-                ["boz"] = null,
-            };
+            rgObject.SetCharacterConfigFromJson(CharacterConfig);
         }
 
         protected override RootNode BuildBehaviorTree()
@@ -31,6 +27,7 @@ namespace RgAbilitybotCs
             topLevelSequenceNode.AddChild(new IsBotActive());
             topLevelSequenceNode.AddChild(new PerformAction());
             topLevelSequenceNode.AddChild(doAThing);
+            topLevelSequenceNode.AddChild(new AlwaysFail(new Node14()));
 
             var rootNode = new RootNode("Root Node");
             rootNode.AddChild(topLevelSequenceNode);
