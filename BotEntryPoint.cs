@@ -24,7 +24,7 @@ namespace RgAbilitybotCs
         protected override RootNode BuildBehaviorTree()
         {
             var topLevelSequenceNode = new SequenceNode("Top Level Sequence Node");
-            topLevelSequenceNode.AddChild(new IsThereAnEntityNearby());
+            topLevelSequenceNode.AddChild(new SelectARandomEntity());
             topLevelSequenceNode.AddChild(new SelectSkill());
             topLevelSequenceNode.AddChild(new PerformSkill());
 

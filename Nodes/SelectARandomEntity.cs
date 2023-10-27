@@ -13,9 +13,9 @@ using UnityEngine;
 
 namespace RgAbilitybotCs
 {
-    public class PerformSkill : ActionNode
+    public class SelectARandomEntity : ConditionNode
     {
-        public PerformSkill() : base("Perform Skill")
+        public SelectARandomEntity() : base("Select a random entity")
         {
         }
 
@@ -25,20 +25,17 @@ namespace RgAbilitybotCs
          */
         protected override NodeStatus Execute(RG rgObject)
         {
-        	var selectedSkill = GetData<int>("selectedSkill");
-        	var target = GetData<RGStateEntity>("targetEntity");
-        
-        	var targetPosition = target.position;
-        	var action = new RGActionRequest("PerformSkill", new()
+        	var random = new System.Random();
+        	var entities = rgObject.FindEntities();
+        	if (entities.Count > 0)
         	{
-        		["skillId"] = selectedSkill,
-        		["targetId"] = target["id"],
-        		["xPosition"] = targetPosition.x,
-        		["yPosition"] = targetPosition.y,
-        		["zPosition"] = targetPosition.z,
-        	});
-        	rgObject.PerformAction(action);
-        	return NodeStatus.Success;
+        		var selectedIndex = random.Next(entities.Count);
+        		var target = entities[selectedIndex];
+        		SetData("targetEntity", target);
+        		return NodeStatus.Success;
+        	}
+        
+        	return NodeStatus.Failure;
         }
     }
 }
