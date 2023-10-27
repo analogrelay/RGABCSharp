@@ -9,7 +9,7 @@ namespace RgAbilitybotCs
         protected override bool GetIsSpawnable() => true;
         protected override RGBotLifecycle GetBotLifecycle() => RGBotLifecycle.Managed;
 
-        private const string CharacterConfig = "{\\"foo\\":\\"bar\\",\\"baz\\":42,\\"biz\\":true,\\"boz\\":null}";
+        private const string CharacterConfig = "{\\"foo\\":\\"here's\nan\nannoying\nvalue\\",\\"baz\\":{\\"yeah\\":\\"there are even nested objects\\",\\"and\\":[\\"arrays\\",\\"too\\"]},\\"biz\\":true,\\"boz\\":null}";
 
         protected override void ConfigureBotInternal(RG rgObject)
         {
