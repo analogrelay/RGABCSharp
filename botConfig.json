@@ -1,1 +1,1 @@
-{"isSpawnable":true,"lifecycle":"MANAGED","characterConfig":"{\n  \"foo\": \"here's\\nan\\nannoying\\nvalue\",\n  \"baz\": {\n    \"yeah\": \"there are even nested objects\",\n    \"and\": [\"arrays\", \"too\"]\n  },\n  \"biz\": true,\n  \"boz\": null\n}"}
+{"isSpawnable":true,"lifecycle":"MANAGED","characterConfig":"{\n  \"characterType\": \"Archer\"\n}"}

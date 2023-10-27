@@ -9,7 +9,7 @@ namespace RgAbilitybotCs
         protected override bool GetIsSpawnable() => true;
         protected override RGBotLifecycle GetBotLifecycle() => RGBotLifecycle.Managed;
 
-        private const string CharacterConfig = @"{""foo"":""here's\nan\nannoying\nvalue"",""baz"":{""yeah"":""there are even nested objects"",""and"":[""arrays"",""too""]},""biz"":true,""boz"":null}";
+        private const string CharacterConfig = @"{""characterType"":""Archer""}";
 
         protected override void ConfigureBotInternal(RG rgObject)
         {
@@ -18,16 +18,10 @@ namespace RgAbilitybotCs
 
         protected override RootNode BuildBehaviorTree()
         {
-            var doAThing = new SelectorNode("Do A thing?");
-            doAThing.AddChild(new Invert(new IsThereAPlayerNearby()));
-            doAThing.AddChild(new AlwaysFail());
-            doAThing.AddChild(new AlwaysSucceed());
-
             var topLevelSequenceNode = new SequenceNode("Top Level Sequence Node");
-            topLevelSequenceNode.AddChild(new IsBotActive());
-            topLevelSequenceNode.AddChild(new PerformAction());
-            topLevelSequenceNode.AddChild(doAThing);
-            topLevelSequenceNode.AddChild(new AlwaysFail(new Node14()));
+            topLevelSequenceNode.AddChild(new IsThereAnEntityNearby());
+            topLevelSequenceNode.AddChild(new SelectSkill());
+            topLevelSequenceNode.AddChild(new PerformSkill());
 
             var rootNode = new RootNode("Root Node");
             rootNode.AddChild(topLevelSequenceNode);
